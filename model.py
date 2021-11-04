@@ -1,5 +1,5 @@
 def __repr__(self):
-        
+        identity = inspect(self).identity
 
         if identity is None:
             pk = f"(transient {id(self)})"
