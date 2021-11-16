@@ -1,6 +1,4 @@
-
-
-    def __repr__(self):
+def __repr__(self):
         identity = inspect(self).identity
 
         if identity is None:
