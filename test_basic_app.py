@@ -70,4 +70,8 @@ def test_sqlite_relative_path(app, tmp_path):
     """
     app.instance_path = tmp_path / "instance"
 
+    # tests default to memory, shouldn't create
+    SQLAlchemy(app).get_engine()
+    assert not app.instance_path.exists()
+
     
