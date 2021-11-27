@@ -74,4 +74,9 @@ def test_sqlite_relative_path(app, tmp_path):
     SQLAlchemy(app).get_engine()
     assert not app.instance_path.exists()
 
+    # absolute path, shouldn't create
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////tmp/test.sqlite"
+    SQLAlchemy(app).get_engine()
+    assert not app.instance_path.exists()
+
     
