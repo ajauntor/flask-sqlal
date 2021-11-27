@@ -64,4 +64,10 @@ def test_persist_selectable(app, db, Todo, recwarn):
     assert len(recwarn) == 0
 
 
+def test_sqlite_relative_path(app, tmp_path):
+    """If a SQLite URI has a relative path, it should be relative to the
+    instance path, and that directory should be created.
+    """
+    app.instance_path = tmp_path / "instance"
 
+    
