@@ -4,7 +4,18 @@ from flask_sqlalchemy import get_debug_queries
 from flask_sqlalchemy import SQLAlchemy
 
 
+def test_basic_insert(app, db, Todo):
+    @app.route("/")
+    def index():
+        return "\n".join(x.title for x in Todo.query.all())
 
+    @app.route("/add", methods=["POST"])
+    def add():
+        form = flask.request.form
+        todo = Todo(form["title"], form["text"])
+        db.session.add(todo)
+        db.session.commit()
+        return "added"
 
     c = app.test_client()
     c.post("/add", data=dict(title="First Item", text="The text"))
