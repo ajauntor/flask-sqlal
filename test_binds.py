@@ -89,12 +89,7 @@ def test_connector_cache(app):
     assert connector._app is app
 
 
-def test_polymorphic_bind(app, db):
-    bind_key = "polymorphic_bind_key"
 
-    app.config["SQLALCHEMY_BINDS"] = {
-        bind_key: "sqlite:///:memory",
-    }
 
     class Base(db.Model):
         __bind_key__ = bind_key
