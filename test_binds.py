@@ -79,8 +79,8 @@ def test_abstract_binds(app, db):
 
 
     # # see the tables created in an engine
-    # metadata = db.MetaData()
-    # metadata.reflect(bind=db.get_engine(app, "foo"))
+    metadata = db.MetaData()
+    metadata.reflect(bind=db.get_engine(app, "foo"))
     assert len(metadata.tables) == 1
     assert "foo_bound_model" in metadata.tables
 
