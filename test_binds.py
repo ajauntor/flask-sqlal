@@ -80,7 +80,6 @@ def test_abstract_binds(app, db):
 
     
     metadata = db.MetaData()
-    metadata.reflect(bind=db.get_engine(app, "foo"))
 
 
 def test_connector_cache(app):
