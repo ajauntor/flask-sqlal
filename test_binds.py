@@ -78,6 +78,13 @@ def test_abstract_binds(app, db):
     assert "foo_bound_model" in metadata.tables
 
 
+    # see the tables created in an engine
+    metadata = db.MetaData()
+    metadata.reflect(bind=db.get_engine(app, "foo"))
+    assert len(metadata.tables) == 1
+    assert "foo_bound_model" in metadata.tables
+
+
 def test_connector_cache(app):
     db = SQLAlchemy()
     db.init_app(app)
