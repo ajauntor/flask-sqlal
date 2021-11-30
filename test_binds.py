@@ -107,4 +107,20 @@ def test_polymorphic_bind(app, db):
 
         __mapper_args__ = {"polymorphic_identity": "base", "polymorphic_on": p_type}
 
- 
+    class Child1(Base):
+
+        child_1_data = db.Column(db.String(50))
+        __mapper_args__ = {
+            "polymorphic_identity": "child_1",
+        }
+
+    assert Base.__table__.info["bind_key"] == bind_key
+    assert Child1.__table__.info["bind_key"] == bind_key
+
+
+def test_execute_with_binds_arguments(app, db):
+    app.config["SQLALCHEMY_BINDS"] = {"foo": "sqlite://", "bar": "sqlite://"}
+    db.create_all()
+    db.session.execute(
+        "SELECT true", bind_arguments={"bind": db.get_engine(app, "foo")}
+    )
