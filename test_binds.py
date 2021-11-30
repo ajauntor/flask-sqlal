@@ -78,9 +78,6 @@ def test_abstract_binds(app, db):
     assert "foo_bound_model" in metadata.tables
 
 
-    
-    metadata = db.MetaData()
-
 
 def test_connector_cache(app):
     db = SQLAlchemy()
