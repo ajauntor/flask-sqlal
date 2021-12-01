@@ -50,9 +50,7 @@ def test_basic_binds(app, db):
 
     # do the session have the right binds set?
     assert db.get_binds(app) == {
-        Foo.__table__: db.get_engine(app, "foo"),
-        Bar.__table__: db.get_engine(app, "bar"),
-        Baz.__table__: db.get_engine(app, None),
+        
     }
 
 
@@ -76,8 +74,6 @@ def test_abstract_binds(app, db):
     metadata.reflect(bind=db.get_engine(app, "foo"))
     assert len(metadata.tables) == 1
     assert "foo_bound_model" in metadata.tables
-
-
 
 def test_connector_cache(app):
     db = SQLAlchemy()
