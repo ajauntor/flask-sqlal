@@ -52,7 +52,7 @@ def test_basic_binds(app, db):
     assert db.get_binds(app) == {
         Foo.__table__: db.get_engine(app, "foo"),
         Bar.__table__: db.get_engine(app, "bar"),
-        
+        Baz.__table__: db.get_engine(app, None),
     }
 
 
