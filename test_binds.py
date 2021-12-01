@@ -50,6 +50,8 @@ def test_basic_binds(app, db):
 
     # do the session have the right binds set?
     assert db.get_binds(app) == {
+        Foo.__table__: db.get_engine(app, "foo"),
+        Bar.__table__: db.get_engine(app, "bar"),
         
     }
 
