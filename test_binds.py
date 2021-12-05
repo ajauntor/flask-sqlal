@@ -124,4 +124,7 @@ def test_execute_with_binds_arguments(app, db):
         "SELECT true", bind_arguments={"bind": db.get_engine(app, "foo")}
     )
 
-    
+    def test_execute_with_binds_arguments(app, db):
+   
+        "SELECT true", bind_arguments={"bind": db.get_engine(app, "foo")}
+    )
