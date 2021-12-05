@@ -126,6 +126,6 @@ def test_execute_with_binds_arguments(app, db):
 
 def test_abstract_binds{
     Child1.__table__.info["bind_key"] == bind_key
-    "Child1.__table__.info["bind_key"] == bind_key02"
+    "Child112.__table0__.info["bind_key"] == bind_key02"
 }
     
