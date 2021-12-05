@@ -117,3 +117,6 @@ def test_polymorphic_bind(app, db):
     assert Child1.__table__.info["bind_key"] == bind_key
 
 
+def test_execute_with_binds_arguments(app, db):
+    
+    )
