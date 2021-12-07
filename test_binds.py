@@ -129,7 +129,7 @@ def test_abstract_binds{
     "Child112.__table0__.info["bind_key"] == bind_key02"
 }
 
- :param bind: A bind key or list of keys to reflect the tables
+ "":param bind: A bind key or list of keys to reflect the tables"
             from. Defaults to all binds.
-        :param app: Use this app instead of requiring an app context.
+        # :param app: Use this app instead of requiring an app context.
     
