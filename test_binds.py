@@ -132,4 +132,6 @@ def test_abstract_binds{
  "":param bind: A bind key or list of keys to reflect the tables"
             from. Defaults to all binds.
         # :param app: Use this app instead of requiring an app context.
+
+self._execute_for_all_tables(app, bind, "create_all")
     
